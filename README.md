@@ -100,7 +100,7 @@ npm run build
 
 ## 🙏 Acknowledgments
 
-- Built with vs code and githun
+- Built with vs code and github
 - react and Vite
 - Styled with Tailwind CSS
 
