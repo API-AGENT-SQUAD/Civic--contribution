@@ -1,4 +1,3 @@
-// src/utils/descopeAuth.js
 import { createClient } from '@descope/web-js-sdk';
 
 class DescopeAuthManager {
@@ -18,10 +17,10 @@ class DescopeAuthManager {
         baseUrl: this.baseUrl,
       });
       this.initialized = true;
-      console.log('✅ Descope SDK initialized');
+      console.log('Descope SDK initialized');
       return this.descope;
     } catch (error) {
-      console.error('❌ Failed to initialize Descope SDK:', error);
+      console.error('Failed to initialize Descope SDK:', error);
       throw error;
     }
   }
@@ -42,7 +41,7 @@ class DescopeAuthManager {
         user: result.user,
       };
     } catch (error) {
-      console.error('❌ Email login failed:', error);
+      console.error('Email login failed:', error);
       return { success: false, error: error.message };
     }
   }
@@ -63,7 +62,7 @@ class DescopeAuthManager {
         user: result.user,
       };
     } catch (error) {
-      console.error('❌ Signup failed:', error);
+      console.error('Signup failed:', error);
       return { success: false, error: error.message };
     }
   }
@@ -77,7 +76,7 @@ class DescopeAuthManager {
         redirectUrl: `${window.location.origin}/auth/callback`,
       });
     } catch (error) {
-      console.error('❌ GitHub OAuth login failed:', error);
+      console.error('GitHub OAuth login failed:', error);
       return { success: false, error: error.message };
     }
   }
@@ -91,7 +90,7 @@ class DescopeAuthManager {
       const result = await this.descope.session.validate(sessionToken);
       return { valid: result.valid, sessionToken };
     } catch (error) {
-      console.error('❌ Session validation failed:', error);
+      console.error('Session validation failed:', error);
       return { valid: false };
     }
   }
@@ -99,7 +98,7 @@ class DescopeAuthManager {
   logout() {
     localStorage.removeItem('descopeSessionToken');
     localStorage.removeItem('descopeRefreshToken');
-    console.log('👋 Logged out');
+    console.log('Logged out');
   }
 }
 
