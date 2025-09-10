@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import descopeAuth from "../utils/descopeAuth"; 
+import { AuthProvider } from "@descope/react-sdk";
 
 const AuthContext = createContext();
 
@@ -229,9 +230,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
+    <AuthProvider projectId={import.meta.env.VITE_DESCOPE_PROJECT_ID}>
+    {children}
+    </AuthProvider>
   );
 };
 
